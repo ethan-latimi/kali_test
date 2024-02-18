@@ -135,7 +135,7 @@ table {
         align-items: center;
         width: 100vw;
         height: 100vh;
-        background-image: url('/kali\ poster.jpg');
+        background-image: url('/kali_poster.jpg');
         background-repeat: no-repeat;
         background-size: contain; /* Change to contain to ensure the image fits within the main element */
         background-position: center; /* Center the background image */
