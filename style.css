@@ -79,12 +79,12 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -98,62 +98,122 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+    display: block;
 }
 body {
-  line-height: 1;
+    line-height: 1;
 }
 ol,
 ul {
-  list-style: none;
+    list-style: none;
 }
 blockquote,
 q {
-  quotes: none;
+    quotes: none;
 }
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
-  content: none;
+    content: '';
+    content: none;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-@media (max-width: 1000px) {
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("/kali\ poster.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  #button {
-    width: 200%;
-    height: 200%;
-    background-color: black;
-  }
-  #error {
-    visibility: hidden;
-    background-color: black;
-  }
+@media (max-width: 992px) {
+    body {
+        background-color: black;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('/kali\ poster.jpg');
+        background-repeat: no-repeat;
+        background-size: contain; /* Change to contain to ensure the image fits within the main element */
+        background-position: center; /* Center the background image */
+        font-family: 'Protest Riot', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    #button {
+        padding: 10px 30px;
+        background-color: #da8989; /* Original bright red background */
+        color: black; /* Black text */
+        font-size: 20px;
+        font-weight: bold;
+        border: 3px solid #000000; /* Black border to mimic the outline effect */
+        border-radius: 5px; /* Slightly rounded corners */
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: transform 0.1s ease-in-out;
+        outline: none; /* Removing the default focus outline */
+        box-shadow: none; /* No box-shadow for a clean, flat design */
+
+        /* Twinkling effect */
+        animation: twinkle 1s infinite alternate;
+    }
+
+    /* Define the keyframes for the twinkling effect */
+    @keyframes twinkle {
+        from {
+            background-color: #da8989;
+        }
+        to {
+            background-color: hsl(27, 49%, 72%);
+        }
+    }
+    #button:before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -1;
+        background: #fff;
+        border-radius: 25px; /* Same as the button's border-radius */
+        background: linear-gradient(145deg, #fafafa, #ddd);
+        opacity: 0.6;
+        transition: opacity 0.3s;
+    }
+
+    #button:hover {
+        background-color: hsl(27, 49%, 72%); /* Invert colors on hover for visual feedback */
+    }
+    #button:hover:before {
+        opacity: 0; /* Remove inner glow on hover for a pressed effect */
+    }
+    #button:active {
+        transform: translateY(4px); /* Moves the button down when clicked */
+        box-shadow: 0 5px 10px #222; /* Adjusts the shadow to give the effect of being pressed */
+    }
+
+    #error {
+        visibility: hidden;
+        background-color: black;
+    }
+    .footer {
+        position: relative;
+        top: 200px; /* Adjust this value to move the button down from the center */
+    }
 }
 @media (min-width: 1000px) {
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    font-size: xx-large;
-    background-color: gold;
-  }
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        font-size: xx-large;
+        background-color: gold;
+    }
 }
